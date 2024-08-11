@@ -1,0 +1,185 @@
+/* Police principale */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Style de l'en-tête */
+header {
+    background-color: #4caf4f00; /* Assurez-vous que ce code couleur est correct ou remplacez-le par une couleur valide */
+    color: white;
+    padding: 20px; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style du titre */
+h1 {
+    margin: 0;
+    color: #312682;
+    font-family: Verdana, sans-serif;
+    display: flex; 
+    align-items: center;
+    justify-content: center; /* Centre le texte et le logo ensemble */
+}
+
+/* Style du logo */
+.logo {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Style du conteneur principal */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style de la section d'upload */
+.upload-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.upload-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Style des éléments du formulaire */
+form {
+    text-align: center; /* Centre le contenu du formulaire */
+}
+
+form input[type="text"],
+form input[type="file"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px auto; /* Marges automatique pour centrer les champs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Inclut padding et bordure dans la largeur */
+}
+
+/* Style du bouton du formulaire */
+form button {
+    padding: 10px 20px;
+    background-color: #312682;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+    max-width: 150px;
+    display: block;
+    margin: 10px auto; /* Marge automatique pour centrer le bouton */
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #1f01ff; /* Changement de couleur au survol */
+}
+
+/* Style de la galerie d'images */
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adaptation automatique des colonnes */
+    gap: 15px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+
+/* Style de chaque carte photo */
+.photo-card {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #ddd; /* Bordure plus douce */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 10px;
+    margin: 10px auto; /* Centre les cartes photo */
+    text-align: center;
+    cursor: pointer; /* Ajout d'un curseur pointer pour l'interaction */
+}
+
+/* Effet d'agrandissement au clic */
+.photo-card.expanded {
+    transform: scale(1.5); /* Agrandissement plus visible */
+    z-index: 10; /* Assure que la carte est au-dessus des autres */
+}
+
+/* Style des images dans les cartes */
+.photo-card img {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour maintenir l'uniformité */
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+    transition: transform 0.3s; /* Transition douce pour l'agrandissement */
+}
+
+
+
+.photo-card:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+
+
+/* Style du pseudo dans la carte photo */
+.photo-card .pseudo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1em; /* Taille du texte légèrement augmentée */
+    margin: 5px 0;
+    color: #333;
+}
+
+/* Style des paragraphes dans la carte photo */
+.photo-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Style pour le bouton de sélection de fichier */
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #312682;
+    border: 1px solid #312682;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.file-upload label:hover {
+    background-color: #1f01ff; 
+}
+
+.file-upload {
+    text-align: center;
+    margin: 10px 0;
+}
+
