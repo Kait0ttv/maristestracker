@@ -98,7 +98,6 @@ form button:hover {
     margin: 0 auto;
 }
 
-
 /* Style de chaque carte photo */
 .photo-card {
     background-color: white;
@@ -115,7 +114,7 @@ form button:hover {
 
 /* Effet d'agrandissement au clic */
 .photo-card.expanded {
-    transform: scale(1.5); /* Agrandissement plus visible */
+    transform: scale(1.05); /* Agrandissement plus visible */
     z-index: 10; /* Assure que la carte est au-dessus des autres */
 }
 
@@ -128,14 +127,11 @@ form button:hover {
     transition: transform 0.3s; /* Transition douce pour l'agrandissement */
 }
 
-
-
+/* Effet de zoom au survol des cartes */
 .photo-card:hover {
     transform: scale(1.05); /* Effet de zoom au survol */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
 }
-
-
 
 /* Style du pseudo dans la carte photo */
 .photo-card .pseudo {
@@ -183,3 +179,86 @@ form button:hover {
     margin: 10px 0;
 }
 
+/* Style de la section des commentaires */
+.comments-section {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Liste des commentaires */
+.comments-list {
+    margin-bottom: 10px;
+}
+
+/* Style individuel pour chaque commentaire */
+.comment-box {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Champ de saisie des commentaires */
+.comment-input {
+    width: auto;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+/* Bouton de soumission des commentaires */
+.submit-comment {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: background-color 0.3s;
+}
+
+.submit-comment:hover {
+    background-color: #0056b3;
+}
+
+
+/* Style de l'image agrandie */
+.enlarged-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 70%;
+    max-height: 70%;
+    z-index: 1000;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    cursor: zoom-out;
+}
+
+/* Fond sombre lorsque l'image est agrandie */
+.enlarged-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    cursor: zoom-out;
+}

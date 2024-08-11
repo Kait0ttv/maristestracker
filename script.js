@@ -1,9 +1,7 @@
-// script.js
-
 // Fonction pour initialiser les événements d'agrandissement sur les cartes photo
 function initializePhotoCardEvents() {
     const photoCards = document.querySelectorAll('.photo-card');
-    
+
     photoCards.forEach(card => {
         card.addEventListener('click', () => {
             const isExpanded = card.classList.contains('expanded');
@@ -64,12 +62,78 @@ function addPhotoToGallery(photoURL, pseudo, caption) {
     pseudoElement.className = "pseudo";
     pseudoElement.textContent = "Publié par : " + pseudo;
 
+    // Ajouter la section des commentaires à la carte photo
+    const commentsSection = document.createElement("div");
+    commentsSection.className = "comments-section";
+
+    const commentsTitle = document.createElement("h3");
+    commentsTitle.textContent = "Commentaires";
+    commentsSection.appendChild(commentsTitle);
+
+    const commentsList = document.createElement("div");
+    commentsList.className = "comments-list";
+    commentsSection.appendChild(commentsList);
+
+    const commentInput = document.createElement("textarea");
+    commentInput.className = "comment-input";
+    commentInput.placeholder = "Ajouter un commentaire...";
+    commentsSection.appendChild(commentInput);
+
+    const submitCommentButton = document.createElement("button");
+    submitCommentButton.className = "submit-comment";
+    submitCommentButton.textContent = "Envoyer";
+
+    // Ajout de l'événement de soumission de commentaire
+    submitCommentButton.addEventListener('click', function() {
+        const commentText = commentInput.value;
+        if (commentText) {
+            const commentBox = document.createElement("div");
+            commentBox.className = "comment-box";
+            commentBox.textContent = commentText;
+            commentsList.appendChild(commentBox);
+            commentInput.value = ''; // Réinitialiser le champ de saisie
+        }
+    });
+
+    commentsSection.appendChild(submitCommentButton);
+
+    // Ajouter les éléments à la carte photo
     photoCard.appendChild(img);
     photoCard.appendChild(captionElement);
     photoCard.appendChild(pseudoElement);
+    photoCard.appendChild(commentsSection);
 
     gallery.appendChild(photoCard);
 
     // Réinitialiser les événements d'agrandissement après ajout de la photo
     initializePhotoCardEvents();
 }
+
+// Fonction pour agrandir l'image
+function enlargeImage(imgSrc) {
+    // Créer un élément pour le fond sombre
+    const background = document.createElement('div');
+    background.className = 'enlarged-background';
+    background.addEventListener('click', () => {
+        document.body.removeChild(background);
+        document.body.removeChild(enlargedImage);
+    });
+    document.body.appendChild(background);
+
+    // Créer l'élément pour l'image agrandie
+    const enlargedImage = document.createElement('img');
+    enlargedImage.src = imgSrc;
+    enlargedImage.className = 'enlarged-image';
+    enlargedImage.addEventListener('click', () => {
+        document.body.removeChild(background);
+        document.body.removeChild(enlargedImage);
+    });
+    document.body.appendChild(enlargedImage);
+}
+
+// Attacher l'événement d'agrandissement aux images
+document.querySelectorAll('.photo-card img').forEach(img => {
+    img.addEventListener('click', (event) => {
+        enlargeImage(event.target.src);
+    });
+});
